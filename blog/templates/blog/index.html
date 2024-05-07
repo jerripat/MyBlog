@@ -1,24 +1,21 @@
 {%  extends "base.html" %}
+{%  load static %}
 
 
 {%  block title %}
-My Blog
+    My Blog
 {%  endblock %}
 
 {%  block css_files %}
-
+    <link rel="stylesheet" href="{%  static "blog/post.css" %}" />
+    <link rel="stylesheet" href="{%  static "blog/index.css" %}" />
 {% endblock %}
 
 {%  block content %}
-    <header id="main-navigation">
-        <h1><a href="">Jerris Blog</a></h1>
-        <nav>
-            <a href="">All Posts</a>
-        </nav>
-    </header>
+
     <section id="welcome">
-    <h2>Welcome to Jerri's Blog</h2><header>
-        <img src="" alt="Jerri -The author of this blog" />
+    <header>
+        <img src="{% static 'blog/images/me.jpeg' %}" alt="Jerri -The author of this blog" >
         <h2>Jerri's Blog</h2>
     </header>
         <p>Hi, I'm Jerri and I like to talk tech!</p>
@@ -26,17 +23,13 @@ My Blog
     <section id="latest-posts">
         <h2>My Latest Posts</h2>
     <ul>
-        <li>
-          <article class="post">
-              <a href="">
-                <img src="" alt="Netwoking"/>
-                  <div class ="post__content"
-              </a>
-          </article>
-        </li>
+        {% include "blog/includes/post.html" %}
     </ul>
     </section>
-    <section>
+    <section id="about">
+    <h2>What I do</h2>
+    <p>I like programming and enjoy helping others .</p>
+    <p>My goal is to keep growing as a programmer and if I can help you that makes me happy</p>
 
     </section>
 
