@@ -1,0 +1,49 @@
+{%  extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+My Blog
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'blog/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+      <link rel="stylesheet" href="{% static 'css/post.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<section id="welcome">
+    <header>
+        <img src="{% static 'blog/images/spidey.jpg' %}" alt="Welcome">
+        <h2>Welcome to My Gross Blog</h2>
+    </header>
+    <p>This is a blog about spiders, web scraping, and Python programming.
+        I've been trying to learn more about these topics.</p>
+</section>
+
+<section id="latest-posts">
+    <h2>My Latest Thoughts</h2>
+    <ul>
+        {% for post in posts  %}
+        {%  include "blog/includes/post.html" %}
+        {% endfor %}
+    </ul>
+</section>
+
+<section id="about">
+    <h2>What I Do...</h2>
+    <p>I'm a web developer, and I've been trying to learn more about spiders,
+        web scraping, and Python programming. I've been using Python to scrape
+        data from websites, and I'm always looking to improve my skills.</p>
+    <p>This blog is a place for me to share my thoughts and experiences with others.</p>
+</section>
+
+<footer>
+    <p>Copyright &copy; 2026 Full Stack Development L.L.C.</p>
+</footer>
+{% endblock %}
