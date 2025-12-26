@@ -24,4 +24,5 @@ class Post(models.Model):
     date = models.DateField(auto_now=True)
     slug = models.SlugField(unique=True, db_index=True)
     content = models.TextField(validators=[MinLengthValidator(10)])
+    tags = models.ManyToManyField(Tag, related_name='posts')
     author = models.ForeignKey(Author, on_delete=models.CASCADE, null=True,related_name='posts')
